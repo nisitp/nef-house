@@ -1,0 +1,201 @@
+@import "~ddbreakpoints/lib/dd.breakpoints";
+
+$font-headline-script: 'Lobster', cursive;
+$font-headline-sans-serif: 'Barlow', sans-serif;
+$font-content: 'Rubik', sans-serif;
+
+$color-white: #ffffff;
+$color-dark-gray: #323a3f;
+$color-green: #82c55c;
+$color-cyan: #0099a9;
+$color-blue: #00aeef;
+$color-orange: #f7941e;
+$color-alt-orange: #fbb040; // Background wrong result
+$color-light-orange: #f0be3a;
+
+@mixin button($color) {
+    display: inline-block;
+    font-family: $font-content;
+    font-weight: bold;
+    color: $color-white;
+    border: none;
+    background-color: $color;
+    padding: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 200ms ease;
+
+    width: 100%;
+    text-align: center; 
+    @include bp(m) {
+      width: auto;
+    }
+
+    &:disabled {
+      opacity: .2;
+    }
+    &:hover {
+        background-color: darken($color, 8%);
+    }
+    
+    
+}
+
+ol, li {
+  padding: 0 0 0 1em;
+}
+
+/* TOOLTIPS REFERENCE
+
+***********
+  BY TYPE
+***********
+<div class="house__tooltip__washItWell__1 house__tooltip"><span class="house__tooltip__icon far fa-lightbulb"></span><div class="house__popup"><em style="font-weight: bold; color: #00afef; font-style: normal; font-size: 12px;">Wash It Well</em>Use cold water with a full load</div></div>
+<div class="house__tooltip__washItWell__2 house__tooltip"><span class="house__tooltip__icon far fa-lightbulb"></span><div class="house__popup"><em style="font-weight: bold; color: #00afef; font-style: normal; font-size: 12px;">Wash It Well</em>Dishes - Run full loads and let the dishes air dry.</div></div>
+
+<div class="house__tooltip__beSmart__1 house__tooltip"><div class="house__popup">Smart washers and dryers can communicate with your utility to run at times when electricity is not in demand</div></div>
+<div class="house__tooltip__beSmart__2 house__tooltip"><div class="house__popup">Smart washers and dryers can communicate with your utility to run at times when electricity is not in demand</div></div>
+<div class="house__tooltip__beSmart__3 house__tooltip"><div class="house__popup">Smart thermostats - Learn about a building to make adjustments that save energy and keep you comfortable. They can turn down the air conditioning during summer vacation, adjust temperature based on the weather forecast, and more.</div></div>
+<div class="house__tooltip__beSmart__4 house__tooltip"><div class="house__popup">It's also smart to purchase energy-efficient appliances and fuel-efficient vehicles.</div></div>
+<div class="house__tooltip__beSmart__5 house__tooltip"><div class="house__popup">Smart meters - Communicate current information between the consumer and the electric utility so both can better manage and understand energy use.</div></div>
+
+<div class="house__tooltip__keepItClean__1 house__tooltip"><div class="house__popup">Have a licensed professional clean and tune your furnace and air conditioner once a year</div></div>
+<div class="house__tooltip__keepItClean__2 house__tooltip"><div class="house__popup">Set your water heater to 120 F</div></div>
+<div class="house__tooltip__keepItClean__3 house__tooltip"><div class="house__popup">Change or clean the furnace filter monthly. Use a filter alarm to remind you! Clean your clothes dryer filter after every use.</div></div>
+<div class="house__tooltip__keepItClean__4 house__tooltip"><div class="house__popup">Service - Have a licensed professional clean and tune your furnace and air conditioner once a year.</div></div>
+
+<div class="house__tooltip__getSet__1 house__tooltip"><div class="house__popup">Water heater - set to 120 F</div></div>
+<div class="house__tooltip__getSet__2 house__tooltip"><div class="house__popup">Shower timer?</div></div>
+<div class="house__tooltip__getSet__3 house__tooltip"><div class="house__popup">Refrigerator - Set between 37 and 40 F. Freezers should be at 0 F.</div></div>
+
+<div class="house__tooltip__sealItUp__1 house__tooltip"><div class="house__popup">Insulation - Use in the attic, exterior walls, on pipes and around your water heater.</div></div>
+<div class="house__tooltip__sealItUp__2 house__tooltip"><div class="house__popup">Buy efficient models and keep them closed when the furnace or air conditioner are on.</div></div>
+<div class="house__tooltip__sealItUp__3 house__tooltip"><div class="house__popup">Buy efficient models and keep them closed when the furnace or air conditioner are on.</div></div>
+<div class="house__tooltip__sealItUp__4 house__tooltip"><div class="house__popup">Insulation - Use in the attic, exterior walls, on pipes and around your water heater.</div></div>
+<div class="house__tooltip__sealItUp__5 house__tooltip"><div class="house__popup">Windows - Buy efficient models and keep htem closed when the furnace or air conditioner are on.</div></div>
+<div class="house__tooltip__sealItUp__6 house__tooltip"><div class="house__popup">Insulation - Use in the attic, exterior walls, on pipes and around your water heater.</div></div>
+
+<div class="house__tooltip__lightItRight__1 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+<div class="house__tooltip__lightItRight__2 house__tooltip"><div class="house__popup">Install LED bulbs. They use around 80 percent less energy and last 25 times longer than incandescent bulbs.</div></div>
+<div class="house__tooltip__lightItRight__3 house__tooltip"><div class="house__popup">Install LED bulbs. They use around 80 percent less energy and last 25 times longer than incandescent bulbs.</div></div>
+
+<div class="house__tooltip__flowLow__1 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators</div></div>
+<div class="house__tooltip__flowLow__2 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators</div></div>
+<div class="house__tooltip__flowLow__3 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators.</div></div>
+<div class="house__tooltip__flowLow__4 house__tooltip"><div class="house__popup">Repair leaks and look for ways to use less water.</div></div>
+<div class="house__tooltip__flowLow__5 house__tooltip"><div class="house__popup">Repair leaks and look for ways to use less water.</div></div>
+
+<div class="house__tooltip__turnItOff__1 house__tooltip"><div class="house__popup">Chargers and devices with remote controls or clocks use power even when turned off or not in full use. Unplug them or use a smart power strip to cut off unneeded energy supply.</div></div>
+<div class="house__tooltip__turnItOff__2 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices</div></div>
+<div class="house__tooltip__turnItOff__3 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices</div></div>
+<div class="house__tooltip__turnItOff__4 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices</div></div>
+<div class="house__tooltip__turnItOff__5 house__tooltip"><div class="house__popup">Chargers and devices with remote controls or clocks use power even when turned off or not in full use. Unplug them or use a smart power strip to cut off unneeded energy supply.</div></div>-->
+
+
+******************
+     BY DEVICE
+******************
+
+<!--Air conditioner-->
+    <!--Outdoors-->
+        <div class="house__tooltip__keepItClean__4 house__tooltip"><div class="house__popup">Have a licensed professional clean and tune your furnace and air conditioner once a year.</div></div>
+
+<!--Cooking Appliances-->
+    <!--Kitchen-->
+        <div class="house__tooltip__turnItOff__2 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+
+<!--Devices-->
+    <!--Study-->
+        <div class="house__tooltip__turnItOff__1 house__tooltip"><div class="house__popup">Chargers and devices with remote controls or clocks use power even when turned off or not in full use. Unplug them or use a smart power strip to cut off unneeded energy supply.</div></div>
+
+<!--Dishwasher-->
+    <!--Kitchen-->
+        <div class="house__tooltip__washItWell__2 house__tooltip"><span class="house__tooltip__icon far fa-lightbulb"></span><div class="house__popup"><em style="font-weight: bold; color: #00afef; font-style: normal; font-size: 12px;">Wash It Well</em><br>Run full dish loads and let the dishes air dry.</div></div>
+
+<!--Dryer-->
+    <!--Basement-->
+        <div class="house__tooltip__beSmart__1 house__tooltip"><div class="house__popup">Smart washers and dryers can communicate with your utility to run at times when electricity is not in demand.</div></div>
+
+<!--Faucet-->
+    <!--Lower Bathroom-->
+        <div class="house__tooltip__flowLow__1 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators.</div></div>
+    <!--Kitchen-->
+        <div class="house__tooltip__flowLow__2 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators.</div></div>
+
+<!--Furnace/Water Heater-->
+    <!--Basement-->
+        <div class="house__tooltip__getSet__1 house__tooltip"><div class="house__popup">Set your water heater to 120 F.</div></div>
+        <div class="house__tooltip__keepItClean__1 house__tooltip"><div class="house__popup">Have a licensed professional clean and tune your furnace and air conditioner once a year.</div></div>
+        <div class="house__tooltip__keepItClean__2 house__tooltip"><div class="house__popup">Set your water heater to 120 F.</div></div>    <!--Remove?-->
+        <div class="house__tooltip__keepItClean__3 house__tooltip"><div class="house__popup">Change or clean the furnace filter monthly. Use a filter alarm to remind you! Clean your clothes dryer filter after every use.</div></div>
+        <div class="house__tooltip__sealItUp__1 house__tooltip"><div class="house__popup">Use insulation in the attic, exterior walls, on pipes and around your water heater.</div></div>
+
+<!--Hybrid Car-->
+    <!--Outdoors-->
+        <div class="house__tooltip__beSmart__4 house__tooltip"><div class="house__popup">It's also smart to purchase energy-efficient appliances and fuel-efficient vehicles.</div></div>
+
+<!--Insulation-->
+    <!--Entrance-->
+        <div class="house__tooltip__sealItUp__4 house__tooltip"><div class="house__popup">Use insulation in the attic, exterior walls, on pipes and around your water heater.</div></div>
+    <!--Attic-->
+        <div class="house__tooltip__sealItUp__6 house__tooltip"><div class="house__popup">Use insulation in the attic, exterior walls, on pipes and around your water heater.</div></div>
+
+<!--Lights-->
+    <!--Entrance-->
+        <div class="house__tooltip__lightItRight__2 house__tooltip"><div class="house__popup">Install LED bulbs. They use around 80 percent less energy and last 25 times longer than incandescent bulbs.</div></div>
+        <div class="house__tooltip__lightItRight__3 house__tooltip"><div class="house__popup">Install LED bulbs. They use around 80 percent less energy and last 25 times longer than incandescent bulbs.</div></div>
+        <div class="house__tooltip__turnItOff__3 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+    <!--Family Room-->
+        <div class="house__tooltip__lightItRight__4 house__tooltip"><div class="house__popup">Install LED bulbs. They use around 80 percent less energy and last 25 times longer than incandescent bulbs.</div></div>
+        <div class="house__tooltip__turnItOff__4 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+
+<!--Nightlight-->
+    <!--Basement-->
+        <div class="house__tooltip__lightItRight__1 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+
+<!--Power Strip-->
+    <!--Entrance-->
+        <div class="house__tooltip__turnItOff__5 house__tooltip"><div class="house__popup">Chargers and devices with remote controls or clocks use power even when turned off or not in full use. Unplug them or use a smart power strip to cut off unneeded energy supply.</div></div>
+
+<!--Refrigerator-->
+    <!--Kitchen-->
+        <div class="house__tooltip__getSet__3 house__tooltip"><div class="house__popup">Set your refrigerator between 37 and 40 F. Freezers should be at 0 F.</div></div>
+
+<!--Shower-->
+    <!--Lower Bathroom-->
+        <div class="house__tooltip__flowLow__3 house__tooltip"><div class="house__popup">Install energy-efficient shower heads and faucet aerators.</div></div>
+        <div class="house__tooltip__getSet__2 house__tooltip"><div class="house__popup">Shower timer?</div></div> <!--FIX THIS-->
+
+<!--Smart Meter-->
+    <!--Outdoors-->
+        <div class="house__tooltip__beSmart__5 house__tooltip"><div class="house__popup">Smart meters communicate current information between the consumer and the electric utility so both can better manage and understand energy use.</div></div>
+
+<!--Sprinklers-->
+    <!--Outdoors-->
+        <div class="house__tooltip__flowLow__4 house__tooltip"><div class="house__popup">Repair leaks and look for ways to use less water.</div></div>
+
+<!--Television-->
+    <!--Family Room-->
+        <div class="house__tooltip__turnItOff__3 house__tooltip"><div class="house__popup">Turn off lights, computers and other devices.</div></div>
+
+<!--Thermostat-->
+    <!--Entrance-->
+        <div class="house__tooltip__beSmart__3 house__tooltip"><div class="house__popup">Learn about a building from smart thermostats to make adjustments that save energy and keep you comfortable. They can turn down the air conditioning during summer vacation, adjust temperature based on the weather forecast, and more.</div></div>
+
+<!--Washer-->
+    <!--Basement-->
+        <div class="house__tooltip__beSmart__2 house__tooltip"><div class="house__popup">Smart washers and dryers can communicate with your utility to run at times when electricity is not in demand.</div></div>
+        <div class="house__tooltip__washItWell__1 house__tooltip"><span class="house__tooltip__icon far fa-lightbulb"></span><div class="house__popup"><em style="font-weight: bold; color: #00afef; font-style: normal; font-size: 12px;">Wash It Well</em><br>Use cold water with a full load.</div></div>
+
+<!--Water (General)-->
+    <!--Upper Bathroom-->
+        <div class="house__tooltip__flowLow__5 house__tooltip"><div class="house__popup">Repair leaks and look for ways to use less water.</div></div>
+
+<!--Window-->
+    <!--Lower Bathroom-->
+        <div class="house__tooltip__sealItUp__2 house__tooltip"><div class="house__popup">Buy efficient window models and keep them closed when the furnace or air conditioner are on.</div></div>
+    <!--Entrance-->
+        <div class="house__tooltip__sealItUp__3 house__tooltip"><div class="house__popup">Buy efficient window models and keep them closed when the furnace or air conditioner are on.</div></div>
+    <!--Family Room-->
+        <div class="house__tooltip__sealItUp__5 house__tooltip"><div class="house__popup">Buy efficient window models and keep them closed when the furnace or air conditioner are on.</div></div>
+*/

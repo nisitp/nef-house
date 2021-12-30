@@ -1,0 +1,62 @@
+{
+  "_from": "vue-drag-it-dude@^1.1.0",
+  "_id": "vue-drag-it-dude@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-LUKAG0dphqIZ56opXj6+mos2DFcYl21eoUTGROcD5tf0/J9qOcpVSUUZHDXg5W3aGhvOSZpX8+TUuCHQmhqvlg==",
+  "_location": "/vue-drag-it-dude",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "vue-drag-it-dude@^1.1.0",
+    "name": "vue-drag-it-dude",
+    "escapedName": "vue-drag-it-dude",
+    "rawSpec": "^1.1.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.1.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-drag-it-dude/-/vue-drag-it-dude-1.1.1.tgz",
+  "_shasum": "27b63dbf7fc1b5de5afb80be111d1ca4c702d3bb",
+  "_spec": "vue-drag-it-dude@^1.1.0",
+  "_where": "/Users/Jacob/Documents/nef_export",
+  "author": {
+    "name": "Max Novikov"
+  },
+  "bugs": {
+    "url": "https://github.com/Esvalirion/vue-drag-it-dude/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "vuejs drag-n-drop library",
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
+    "cross-env": "5.2.0",
+    "css-loader": "0.28.11",
+    "file-loader": "1.1.11",
+    "vue-loader": "15.2.4",
+    "vue-template-compiler": "2.5.16",
+    "webpack": "4.15.0",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "3.1.4"
+  },
+  "homepage": "https://github.com/Esvalirion/vue-drag-it-dude#readme",
+  "license": "MIT",
+  "main": "src/main.js",
+  "name": "vue-drag-it-dude",
+  "peerDependencies": {
+    "vue": "2.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Esvalirion/vue-drag-it-dude.git"
+  },
+  "scripts": {
+    "build": "webpack -p"
+  },
+  "version": "1.1.1"
+}
