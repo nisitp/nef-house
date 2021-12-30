@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      window.nefHouseConfig = {
+//        questionCount: 5,
+        providers: [{
+        "clientName": "Georgia Power",
+        "image": "./logos/logo-gp.png",
+        "link": "https://www.georgiapower.com",
+        "imageHeight": "16",
+        "imageWidth":  "91"
+        },
+        {
+        "clientName": "NEF",
+        "image": "./logos/logo-nef.png",
+        "link": "https://nef1.org/",
+        "imageHeight": "29",
+        "imageWidth":  "41"
+        }],        
+        resultPage: {
+          "header": "Recursos Adicionales",
+          "links":
+            [
+              "<a target='_blank' href='http://hews.nef1.org/'>Haz clic aquí</a> para completar tu Hoja de Trabajo sobre Energía en el Hogar.",
+              "<a target='_blank' href='http://www.youtube.com/'>Haz clic aquí</a> para ver videos que te ayudarán a instalar los productos de tu kit."
+            ]
+          }
+      };
+    </script>
+    <noscript>
+      <strong>Desafortunadamente, NEF no funciona correctamente si JavaScript no está activado. Actívalo para continuar.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
